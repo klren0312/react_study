@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.2/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/16.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.development.js"></script>
+    <style>
+        html,body,#example{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .SplitPane{
+            width: 100%;
+            height: 100%;
+        }
+        .SplitPane-left{
+            float: left;
+            width: 30%;
+            height: 100%;
+        }
+        .SplitPane-right{
+            float: left;
+            width: 70%;
+            height: 100%;
+        }
+        .Contacts{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+        }
+        .Chat{
+            width: 100%;
+            height: 100%;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        function Contacts(){
+            return <div className="Contacts" />
+        }
+
+        function Chat(){
+            return <div className="Chat" />
+        }
+
+        function SplitPane(props){
+            return (
+                <div className="SplitPane">
+                    <div className="SplitPane-left">
+                        {props.left}
+                    </div>
+                    <div className="SplitPane-right">
+                        {props.right}
+                    </div>
+                </div>
+            )
+        }
+
+        function App(){
+            return (
+                <SplitPane 
+                   left={
+                       <Contacts />
+                   } 
+                   right={
+                       <Chat />
+                   } />
+            )
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>
