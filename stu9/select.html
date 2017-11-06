@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.2/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/16.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.development.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class FlavorForm extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {value:'klren'}
+
+                this.handleChange = this.handleChange.bind(this)
+                this.handleSubmit = this.handleSubmit.bind(this)
+            }
+
+            handleChange(event){
+                this.setState({value:event.target.value})
+            }
+
+            handleSubmit(event){
+                alert("your favorite flavor is :"+ this.state.value)
+                event.preventDefault()
+            }
+
+            render(){
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Pick your favorite La Croix flavor:
+                            <select value={this.state.value} onChange={this.handleChange}>
+                                <option value="grapefruit">Grapefruit</option>
+                                <option value="lime">Lime</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="mango">Mango</option>
+                            </select>
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                )
+            }
+        }
+        ReactDOM.render(
+            <FlavorForm/>,
+            document.getElementById("example")
+        )
+    </script>
+</body>
+</html>

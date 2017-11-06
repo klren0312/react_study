@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.2/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/16.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+       class Popper extends React.Component{
+           constructor(){
+            super()
+            this.state = {name:'klren'}
+           }
+           preventPop(name,e){
+            e.preventDefault()
+            alert(name)
+           }
+
+            render(){
+                return (
+                    <div>
+                        <p>hello</p>
+                        <a href="https://reactjs.org" onClick={this.preventPop.bind(this,this.state.name)}>
+                            click
+                        </a>
+                    </div>
+                )
+            }
+           
+       }
+
+       ReactDOM.render(
+           <Popper />,
+           document.getElementById("root")
+       )
+       
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.2/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/16.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.development.js"></script>
+    <style>
+        .FancyBorder {
+        padding: 10px 10px;
+        border: 10px solid;
+        }
+
+        .FancyBorder-blue {
+        border-color: blue;
+        }
+
+        .Dialog-title {
+        margin: 0;
+        font-family: sans-serif;
+        }
+
+        .Dialog-message {
+        font-size: larger;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        function FancyBorder(props){
+            return (
+                <div className={'FancyBorder FancyBorder-'+props.color}>
+                    {props.children}
+                </div>
+            )
+        }
+
+        function WelcomeDialog(){
+            return (
+                <FancyBorder color="blue">
+                    <h1 className="Dialog-title">
+                        Welcome
+                    </h1>
+                    <p className="Dialog-message">
+                        Thank you for visiting our spacecraft
+                    </p>
+                </FancyBorder>
+            )
+        }
+        ReactDOM.render(
+            <WelcomeDialog />,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>
