@@ -14,8 +14,6 @@ function checkStatus(response){
   throw error
 }
 
-
-
 export default  function request(options = {}){
   // const Authorization = localStorage.getItem('access_token')
   const {data,url} = options
