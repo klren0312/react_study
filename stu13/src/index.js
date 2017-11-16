@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Health from './Health';
+import StateExample from './StateExample';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Health name={"test"} />, document.getElementById('root'));
+ReactDOM.render(<StateExample />, document.getElementById('root'));
 registerServiceWorker();

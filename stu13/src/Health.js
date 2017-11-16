@@ -8,6 +8,7 @@ class Health extends React.Component{
     }
   }
 
+
   componentDidMount(){
     this.timer=setInterval(function(){
       var opacity = this.state.opacity
