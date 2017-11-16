@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import RequestStu from './RequestStu';
+import RequestDemo from './RequestDemo';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<RequestStu />, document.getElementById('root'));
+ReactDOM.render(<RequestDemo />, document.getElementById('root'));
 registerServiceWorker();

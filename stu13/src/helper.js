@@ -1,3 +1,6 @@
+const commonUrl = 'http://127.0.0.1:3456'
+localStorage.setItem("access_token","test")
+
 function parseJSON(response){
   return response.json()
 }
@@ -11,30 +14,13 @@ function checkStatus(response){
   throw error
 }
 
-function getCookie(name) {
-  const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
-  const arr = document.cookie.match(reg);
-  if (arr) {
-    return decodeURIComponent(arr[2]);
-  } else {
-    return null;
-  }
-}
 
-// function getAuthHeader(user_token='test') {
-//   return ({
-//     headers: {
-//       'Accept': 'application/json',
-//       'Authorization':  user_token,
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// }
 
 export default  function request(options = {}){
-  const Authorization = getCookie('access_token')
+  // const Authorization = localStorage.getItem('access_token')
   const {data,url} = options
-  options = {method:"post", ...options}
+  options = {...options}
+  options.mode = 'cors'
   delete options.url
   if(data){
     delete options.data
@@ -43,10 +29,10 @@ export default  function request(options = {}){
     })
   }
   options.headers={
-    Authorization,
-    'Content-Type':'application/json;charset=UTF-8'
+    // 'Authorization':Authorization,
+    'Content-Type':'application/json'
   }
-  return fetch(url,options)
+  return fetch(commonUrl+url,options,{credentials: 'include'})
     .then(checkStatus)
     .then(parseJSON)
     .catch(err=>({err}))
