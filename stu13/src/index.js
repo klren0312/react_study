@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import StateExample from './StateExample';
+import TimeSet from './TimeSet';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<StateExample />, document.getElementById('root'));
+ReactDOM.render(<TimeSet />, document.getElementById('root'));
 registerServiceWorker();
