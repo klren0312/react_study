@@ -1,7 +1,23 @@
 import React from 'react'
 import {Table} from 'antd'
+import request from './utils'
 
 class AjaxAntTable extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      data:[]
+    }
+  }
+  componentDidMount(){
+    let options = {}
+    options.url = 'http://54.223.76.4:8080/bsh/console/menu/select'
+    options.method = 'get'
+    request(options)
+      .then(function(res){
+        console.log(res)
+      })
+  }
   render(){
     const columns = [{
       title: 'Name',

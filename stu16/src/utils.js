@@ -24,10 +24,10 @@ export default function request(options={}){
     options.body = JSON.stringify(data)
   }
   options.headers={
-    'Content-Type':'application/json;charset=UTF-8'
+    'Content-Type':'application/json'
   }
   return fetch(url,options,{credentials:'include'})
     .then(checkStatus)
-    .then(parseJSON)
+    // .then(parseJSON)
     .catch(err=>({err}))
 }

@@ -2,6 +2,7 @@
   "name": "stu16",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://54.223.76.4:8080",
   "dependencies": {
     "antd": "^2.13.10",
     "react": "^16.2.0",
