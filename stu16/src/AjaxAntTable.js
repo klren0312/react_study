@@ -11,7 +11,7 @@ class AjaxAntTable extends React.Component{
   }
   componentDidMount(){
     let options = {}
-    options.url = 'http://54.223.76.4:8080/bsh/console/menu/select'
+    options.url = '/console/menu/select'
     options.method = 'get'
     request(options)
       .then(function(res){
