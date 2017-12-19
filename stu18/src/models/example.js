@@ -4,19 +4,24 @@ export default {
   namespace: 'count',
 
   state: {
-    record : 0,
+    max : 0,
+    min:0,
     current : 0
   },
   reducers:{
     add(state){
       const newCurrent = state.current + 1
       return { ...state,
-        record: newCurrent > state.record ? newCurrent : state.record,
+        max: newCurrent > state.max ? newCurrent : state.max,
         current: newCurrent,
       }
     },
     minus(state){
-      return {...state, current: state.current - 1}
+      const newCurrent = state.current - 1
+      return {...state, 
+        min: newCurrent < state.min ? newCurrent : state.min,
+        current: newCurrent
+      }
     }
   }
 }
